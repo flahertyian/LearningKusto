@@ -1,0 +1,51 @@
+LearnKusto
+May 2025 Workshop
+
+Exercise 2
+
+# Questions
+
+### ✅ 1. List the successful login count per application.
+
+Excersise2
+| where ResultDescription == "Success"
+| summarize count() by AppDisplayName
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AppDisplayName				count_
+Microsoft Azure Workflow		6
+Microsoft Cloud App Security	7
+Skype for Business Online		10
+Dataverse						4
+Yammer							9
+Microsoft Office 365 Portal		3
+Windows Azure Active Directory	6
+Office 365 SharePoint Online	3
+Microsoft Graph					7
+Azure ESTS Service				5
+Office 365 Exchange Online		7
+Azure API Management			10
+
+### ✅ 2. Create a piechart with the distribution of sign-in events per application.
+
+Excersise2
+| where ResultType == "0"
+| summarize count() by AppDisplayName
+| sort by count_
+| render piechart with(title="Successfull logins by App")
+
+
+### ✅ 3. Create a barchart/columnchart with the number of sign-in activities to the Graph API per user.
+
+Excersise2
+| where AppDisplayName == "Microsoft Graph"
+| summarize count() by UserPrincipalName
+| sort by count_
+| render columnchart with(title="Login activity to MSGraph by User")
+
+### ✅ 4. Creaet a timechart with the number of failed sign-in activities per day.
+
+Excersise2
+| where ResultType != 0
+| summarize FailedSignIn = count() by bin(TimeGenerated, 1d)
+| render timechart with(title="Failed sign in attempts by day", ytitle="# of Attempts", xtitle="Time")

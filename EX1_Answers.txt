@@ -1,0 +1,87 @@
+LearnKusto
+May 2025 Workshop
+
+Exercise 1
+
+# Questions
+
+### ✅ 1. What is the schema of the dataset?
+
+CSV dataset
+
+### ✅ 2. How many records are in the dataset?
+
+Excersise1
+| count
+
+100 records
+	
+### ✅ 3. What are the distinct ActionTypes present in the dataset?
+
+Excersise1
+| distinct ActionType
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ActionType
+LdapSearch
+AntivirusScanCompleted
+AntivirusDetection
+ScreenshotTaken
+ExploitGuardNonMicrosoftSignedBlocked
+DriverLoad
+ExploitGuardChildProcessAudited
+TamperingAttempt
+DnsQueryResponse
+TvmAxonTelemetryEvent
+ScheduledTaskCreated
+PnpDeviceAllowed
+AppControlCodeIntegritySigningInformation
+PowerShellCommand
+OtherAlertRelatedActivity
+AntivirusReport
+ClrUnbackedModuleLoaded
+NtAllocateVirtualMemoryApiCall
+CreateRemoteThreadApiCall
+AuditPolicyModification
+ContainedUserLogonBlocked
+ShellLinkCreateFileEvent
+ScheduledTaskDeleted
+OpenProcessApiCall
+DpapiAccessed
+NamedPipeEvent
+BrowserLaunchedToOpenUrl
+UserAccountModified
+ReadProcessMemoryApiCall
+ServiceInstalled
+SmartScreenAppWarning
+NtProtectVirtualMemoryApiCall
+AntivirusDetectionActionType
+ScheduledTaskUpdated
+AntivirusScanCancelled
+ContainedUserRemoteDesktopSessionStopped
+ProcessCreatedUsingWmiQuery
+PnpDeviceConnected
+ContainedUserRemoteDesktopSessionDisconnected
+UserAccountAddedToLocalGroup
+
+### ✅ 4. How many events from Device-007 are present in the dataset?
+
+Excersise1
+| where DeviceName == "Device-007"
+| count
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+9 Events from Device-007
+
+### ✅ 5. How many PowerShellCommand actions were initiated from C:\Windows\System32?
+
+Excersise1
+| where FileName == "powershell.exe" and InitiatingProcessFolderPath == @"C:\Windows\System32"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Three actions matched this query
+
+Timestamp					DeviceId	DeviceName	ActionType						FileName		AccountSid			InitatingProcessSHA1						InitiatingProcessFolderPath
+2025-05-01 05:15:25.2144290	759931		Device-005	ProcessCreatedUsingWmiQuery		powershell.exe	S-1-5-21-5616355490	a962ece76d6feabefb5393f33f6bd157febd8281	C:\Windows\System32
+2025-05-01 05:25:50.2144290	412878		Device-018	UserAccountAddedToLocalGroup	powershell.exe	S-1-5-21-7357154875	bc7a8b8673a7ef6bf9f908f01d5c67b0dc86acaf	C:\Windows\System32
+2025-05-01 07:04:30.2144290	513778		Device-014	PnpDeviceConnected				powershell.exe	S-1-5-21-3148255165	1abfbb67cfbedd62a8a24bf98607cc6b2cae1c21	C:\Windows\System32
