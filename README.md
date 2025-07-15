@@ -1,5 +1,14 @@
 LearnKusto
 May 2025 Workshop
+https://github.com/KustoKing/LearnKusto
+
+  Practice materiel maintainers:
+  Gianni Castaldi,
+  Bert-Jan Pals
+
+----
+Ian Flaherty - [linkedin](https://www.linkedin.com/in/flahertyian/)
+
 
 ### Exercise 1
 
